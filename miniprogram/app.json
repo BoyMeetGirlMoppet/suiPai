@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/log/log",
+    "pages/send/send",
+    "pages/details/details",
+    "pages/me/me",
+    "pages/myInfo/myInfo"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#aaa",
+    "navigationBarTitleText": "随时拍",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+ 
+}
