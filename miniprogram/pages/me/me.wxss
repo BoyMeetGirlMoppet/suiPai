@@ -1,1 +1,60 @@
 /* pages/me/me.wxss */
+page{
+  height: 100%;
+  
+  color: white;
+  font-weight: bold;
+  }
+.top_container{
+
+ text-align: center;
+}
+ .header_icon{
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 10px aqua;
+  background: no-repeat center;
+  background-size: cover;
+  margin: 30rpx auto;
+  
+}
+ .header_icon text{
+   line-height: 300rpx;
+   color: #fff;
+   font-size: 50rpx;
+   font-family: "华文行楷";
+   text-shadow: 0 0 10px aqua; 
+ }
+ .city,.username{
+   color: black;
+ }
+.item{
+ display: flex;
+ justify-content: space-between;
+ justify-items: center;
+ color: white;
+ border-bottom: 5rpx solid #eee;
+ align-items: center;
+   padding: 30rpx 40rpx;
+   box-sizing: border-box;
+} 
+.item image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.left{
+  display: flex;
+}
+.left image{
+  margin-right: 30rpx;
+}
+.left view{
+   padding: 0 20rpx;
+   text-shadow: 0 0 10px aqua;
+   box-sizing: border-box;
+}
+.right{
+  color: #ccc;
+}
+

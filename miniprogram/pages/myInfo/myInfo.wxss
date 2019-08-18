@@ -1,1 +1,18 @@
-/* pages/myInfo/myInfo.wxss */
+
+
+.item {
+  background: rgba(240,240,240,0.6);
+  margin: 5% 0;
+  align-items: center;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 0 15rpx gray;
+}
+
+.item .name {
+  text-align: right;
+  color: aqua
+}
+.goback{
+  float: right;
+}

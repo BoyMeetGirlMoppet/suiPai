@@ -1,1 +1,28 @@
-/* pages/send/send.wxss */
+input {
+  text-align: center;
+  color: #000;
+}
+
+textarea {
+  width: 100%;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  /* height: 500rpx; */
+}
+
+.send {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+button {
+  /* text-shadow: 0 0 5px aqua; */
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  font-family: "华文新魏";
+  color: rgb(49, 94, 71);
+
+}

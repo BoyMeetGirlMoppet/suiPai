@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    images: ["http://img15.3lian.com/2015/f3/29/d/91.jpg", "http://epaper.gmw.cn/gmrb/images/2017-05/16/05/res04_attpic_brief.jpg", "http://www.cnnb.com.cn/pic/0/02/24/74/2247455_897677.jpg", "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1402/15/c0/31271547_31271547_1392452448981_mthumb.jpg"]
   },
 
   /**

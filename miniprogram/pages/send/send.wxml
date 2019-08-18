@@ -1,2 +1,10 @@
-<!--pages/send/send.wxml-->
-<text>pages/send/send.wxml</text>
+
+<!-- <view style='font-size:14px;'>快来分享一下你的游记吧</view> -->
+<input placeholder='标题' bindblur=''></input>
+  <textarea placeholder="想说的话写在这里" auto-focus='true' bindblur='inputAction'></textarea>
+
+
+<view class='send'>
+<button bindtap='selectImage'>照相</button>
+<button bindtap='add'>发表</button>
+</view>

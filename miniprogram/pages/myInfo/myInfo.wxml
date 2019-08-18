@@ -1,2 +1,14 @@
-<!--pages/myInfo/myInfo.wxml-->
-<text>pages/myInfo/myInfo.wxml</text>
+  <view class='container'>
+
+  <view class='list_view' wx:for="{{datas}}">
+    <view class='item'>
+      <view class='address'>{{'保定职业学院'}}</view>
+      <view class='content'>{{item.content}}</view>
+      <view class='name'>--by{{item.name}}</view>
+    </view>
+  </view>
+  <view class='shezhi'>
+  <view class='goback' bindtap='toShouye'>返回首页</view>
+    <view class='fabu' bindtap='toFabu'>发布说说</view>
+</view>
+</view>

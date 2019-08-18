@@ -1,2 +1,22 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class='top_container'>
+<view class='header_icon' style='background:url({{info.avatarUrl}})'>
+<text>头像</text>
+</view>
+
+<view class='username'>{{info.nickName}}</view>
+<view class='city'>{{info.city}},{{info.province}}</view> 
+
+</view>
+
+<view class='list'>
+
+<view class='item' wx:for='{{list}}' wx:key='mine'>
+<view class='left'>
+<image src='{{item.icon}}'></image>
+<view>{{item.title}}</view>
+</view>
+<view class='right'>></view>
+</view>
+
+</view>
+
