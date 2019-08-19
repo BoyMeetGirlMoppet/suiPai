@@ -8,7 +8,21 @@ textarea {
   padding: 20rpx 0;
   font-size: 30rpx;
   box-sizing: border-box;
+  
   /* height: 500rpx; */
+} 
+
+.img{
+  display: flex;
+  flex-wrap: wrap;
+}
+.img view{
+  width: 32%;
+  margin: 2rpx 5rpx;
+}
+.img image{
+  width: 100%; 
+  height: 200rpx;
 }
 
 .send {

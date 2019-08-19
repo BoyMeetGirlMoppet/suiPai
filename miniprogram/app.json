@@ -14,32 +14,7 @@
     "backgroundColor": "#eeeeee",
     "enablePullDownRefresh": true
   }
- ,
-"tabBar": {
-  "backgroundColor": "#20B2AA",
-  "color": "#ffffff",
-  "selectedColor": "#ffffff",
-  "list": [
-    {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/tarbar/icon-1.png",
-      "selectedIconPath": "images/tarbar/icon-2.png"
-    },
-    {
-      "pagePath": "pages/send/send",
-      "text": "发布",
-      "iconPath": "images/tarbar/youji.png",
-      "selectedIconPath": "images/tarbar/youji2.png"
-    },
-    
-    {
-      "pagePath": "pages/me/me",
-      "text": "我",
-      "iconPath": "images/tarbar/icon-5.png",
-      "selectedIconPath": "images/tarbar/icon-6.png"
-    }
-  ]
-},
+
+,
 "sitemapLocation": "sitemap.json"
 }

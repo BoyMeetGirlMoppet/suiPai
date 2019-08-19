@@ -1,3 +1,5 @@
+const db = wx.cloud.database()
+
 // pages/details/details.js
 Page({
 
@@ -5,14 +7,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    info:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    db.collection("photo").doc(
+      options.id
+    )
+    .get()
+    .then(res=>{
+      console.log(res)
+      this.setData({
+        info:res.data
+      })
+    }).catch(err=>{
+      console.log(err)
+    })
   },
 
   /**

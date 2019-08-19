@@ -11,7 +11,7 @@
 
   <view class='List_container'>
     <!--每条说说  -->
-    <view class='item' wx:for="{{datas}}" wx:key >
+    <view class='item' wx:for="{{list}}" wx:key bindtap="toDeail" data-id="{{item._id}}">
       <!--tou  -->
       <view class='header_icon' style='background-image:url({{item.userIcon}})'>   </view>
       <!--内容  -->
@@ -32,5 +32,5 @@
 
 </view>
 
-<view class='publish_button' bindtap='toPublish'>+</view>
-<view class='user_button' bindtap='toUser'>Me</view>
+<view class='publish_button' bindtap='toSend'>+</view>
+<view class='user_button' bindtap='toMe'>Me</view>
