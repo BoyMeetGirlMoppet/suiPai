@@ -1,3 +1,4 @@
+<!-- 轮播区域 -->
 <view class='banner_swiper'>
   <swiper indicator-dots='true' autoplay='true' circular='true' indicator-active-color='#00CED1' indicator-color='#FFA500' interval='3000'>
     <swiper-item wx:for='{{images}}' wx:key='index'>
@@ -6,31 +7,23 @@
   </swiper>
 </view>
 
-<view>
-  <!--列表的容器  -->
 
-  <view class='List_container'>
-    <!--每条说说  -->
-    <view class='item' wx:for="{{list}}" wx:key bindtap="toDeail" data-id="{{item._id}}">
-      <!--tou  -->
-      <view class='header_icon' style='background-image:url({{item.userIcon}})'>   </view>
-      <!--内容  -->
-      <view class='content_container'>
-      <!-- item 标识  数组中  便利出来的每一个元素 -->
-        <view class='address'>{{item.address}}</view>
-        <view class='content'>{{item.content}}</view>
-        <!-- 显示发布说说时的图片 -->
-        <view class='image_container' wx:if="{{item.url.length>0}}"><image src='{{item.url}}' mode='scaleToFill'></image></view>
-        <view class='date'>{{item.createdAt}}</view>
-        <view class='name'>{{item.username}}</view>
-      </view>
-
-
-    </view>
-
+<!-- 说说区域 -->
+<view class='scene_list'  bindtap='toDetail' wx:for="{{list}}" wx:key data-id='{{item._id}}'>
+  <image class='scene_list_img' src='{{item.fileIds[0]}}'></image>
+ 
+  <view class='scene_title'>{{item.title}}</view>
+  <view class='scene_infomation'>
+    <text>{{item.createdAt}}</text>
+    <view>{{item.address}}</view>
   </view>
 
+  <view class='user_head'>
+  <image src='{{item.userInfo.avatarUrl}}' mode='widthFix'></image>
+<view>~by {{item.userInfo.nickName}}</view>
+  </view>  
 </view>
+
 
 <view class='publish_button' bindtap='toSend'>+</view>
 <view class='user_button' bindtap='toMe'>Me</view>

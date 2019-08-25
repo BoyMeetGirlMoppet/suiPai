@@ -26,14 +26,24 @@
 
 .image_container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20rpx 0;
+  flex-wrap: wrap;
+ text-align: center;
+  
 }
 
 .image_container image{
-  width: 500rpx;
-  height: 500rpx;
+  /* width: 30%; */
+  height: 300rpx;
+  margin: 10rpx;
   box-shadow: 8rpx 8rpx 10rpx #9DD3C7;
   border-radius: 30rpx;
+}
+.img1{
+  width: 100%;
+}
+.img2{
+  width: 47%;
+}
+.img3{
+  width: 30%;
 }

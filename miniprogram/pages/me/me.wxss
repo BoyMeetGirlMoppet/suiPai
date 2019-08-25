@@ -1,4 +1,3 @@
-/* pages/me/me.wxss */
 page{
   height: 100%;
   
@@ -6,18 +5,16 @@ page{
   font-weight: bold;
   }
 .top_container{
-
+width: 100%;
+/* background: pink; */
  text-align: center;
 }
- .header_icon{
-  width: 300rpx;
-  height: 300rpx;
+ .header_icon image{
+  width: 200rpx;
+  height: 200rpx;
   border-radius: 50%;
   box-shadow: 0 0 10px aqua;
-  background: no-repeat center;
-  background-size: cover;
   margin: 30rpx auto;
-  
 }
  .header_icon text{
    line-height: 300rpx;
@@ -28,6 +25,10 @@ page{
  }
  .city,.username{
    color: black;
+ }
+
+ .list{
+   margin-top: 20rpx;
  }
 .item{
  display: flex;

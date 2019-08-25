@@ -1,3 +1,7 @@
+ page{
+   color: #000;
+ }
+ 
  .banner_swiper {
   height: 350rpx;
   width: 100%;
@@ -92,3 +96,76 @@ background-size: cover;
   left: 20rpx;
   font-size: 40rpx;
 }
+
+
+
+.scene_list {
+  height: 500rpx;
+  padding: 10rpx;
+  position: relative;
+  margin-bottom: 10rpx;
+  box-shadow: 0 4rpx 10rpx aqua;
+   border-radius: 20rpx;
+}
+
+.scene_list_img {
+  width: 100%;
+  height: 500rpx;
+  border-radius: 20rpx;
+}
+.scene_title{
+  position: absolute;
+  top: 10rpx;
+  left: 40rpx;
+  font-size: 40rpx;
+  color: #eee;
+  font-weight: bold;
+  margin-top: 20rpx;
+}
+.scene_infomation{
+  width: 750rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 40rpx;
+  border-left: 6rpx solid aqua;
+ margin-top: 30rpx;
+  color: #fff;
+  font-weight: bold;
+  padding-left: 15rpx;
+ 
+}
+.scene_infomation>view{
+  font-size: 18rpx;
+  line-height: 20rpx;
+}
+.scene_infomation>text{
+  font-size: 25rpx;
+  line-height: 25rpx;
+  display: block;
+  padding-bottom: 10rpx;
+}
+
+/* 用户头像 */
+.user_head{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10rpx;
+  bottom: 30rpx;
+ 
+}
+.user_head image{
+  width: 70rpx;
+  height: 70rpx;
+  display: block;
+  border-radius: 50%;
+}
+.user_head>view{
+   color: #fff;
+  font-weight: bold;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+}
+
+
+

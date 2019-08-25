@@ -5,14 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{ icon: "../../images/mine/sicang.png", title: "我的收藏" }, { icon: "../../images/mine/like.png", title: "我的订单" }, { icon: "../../images/mine/guanzhu.png", title: "关注" }, { icon: "../../images/mine/pinglun.png", title: "评论" }]
+    list: [{ icon: "../../images/mine/sicang.png", title: "我的收藏" }, { icon: "../../images/mine/like.png", title: "喜欢" }, { icon: "../../images/mine/guanzhu.png", title: "关注" }, { icon: "../../images/mine/pinglun.png", title: "评论" }],
+    info:{}
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.getUserInfo({
+      withCredentials: true,
+      lang: '',
+      success: res=> {
+        console.log(res)
+        this.setData({
+          info: res.userInfo
+        })
+      }
+    })
   },
 
   /**
