@@ -5,10 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{ icon: "../../images/mine/sicang.png", title: "我的收藏" }, { icon: "../../images/mine/like.png", title: "喜欢" }, { icon: "../../images/mine/guanzhu.png", title: "关注" }, { icon: "../../images/mine/pinglun.png", title: "评论" }],
-    info:{}
+    list: [ { icon: "../../images/mine/send.png", title: "发布" }, { icon: "../../images/mine/pinglun.png", title: "评论" }],
+    info:{},
+    uid:""
   },
- 
+  toMyInfo:function(e){
+    console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/myInfo/myInfo?id='+id+"&uid="+this.data.uid
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,7 +26,8 @@ Page({
       success: res=> {
         console.log(res)
         this.setData({
-          info: res.userInfo
+          info: res.userInfo,
+          uid: res.signature
         })
       }
     })

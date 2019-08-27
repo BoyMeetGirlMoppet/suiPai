@@ -6,14 +6,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[], //接收详情页面数据
+    review:"",//评论的内容
+    id:"",    //接收页面传过来的id 获取数据的判断条件
+    comments:[]  //接收评论 
   },
-
+  selReview:function(){
+    db.collection("comment").where({
+      id:this.data.id
+    }).get()
+    .then(res=>{
+      console.log(res)
+      this.setData({
+        comments: res.data
+      })
+    }).catch(err=>{
+      console.log(err)
+    })
+  },
+  flush:function(){//评论过后刷新页面
+    db.collection("comment").add({
+      data:{
+        review:this.data.review,
+        id:this.data.id
+      }
+    }).then(res=>{
+      console.log(res)
+      
+    }).catch(err=>{
+      console.log(err)
+    })
+  },
+  inputAction:function(e){
+    console.log(e.detail.value)
+    this.setData({
+      review: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options.id)
+    this.setData({
+      id:options.id
+    })
     db.collection("photo_list").where({
       _id: options.id
     }).get()
@@ -23,7 +60,7 @@ Page({
         list: res.data
       })
     })
-
+    this.selReview()
   },
 
   /**

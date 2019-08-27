@@ -6,13 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    content:"",
-    title:"",
-    images:[],
-    userInfo: {}, 
-    fileIds: []
+    content: "",
+    title: "",
+    images: [],
+    userInfo: {},
+    fileIds: [],
+    uid: "",
+    date:""
   },
-  submit: function () {
+  date: function() {
+    var date = new Date()
+    date = date.getFullYear() +
+      "/" + (date.getMonth() + 1) +
+      "/" + date.getDate() +
+      " " + date.getHours() +
+      ":" + date.getMinutes() +
+      ":" + date.getSeconds()
+    console.log(date)
+    this.setData({
+      date:date
+    })
+  },
+  submit: function() {
+    this.date();
     //功能一：将选中图片上传云存储
     //1：显示数据加载中提示框
     wx.showLoading({
@@ -36,10 +52,10 @@ Page({
         var newFile = new Date().getTime() + Math.floor(Math.random() * 9999) + suffix;
         console.log(newFile);
         //7：上传图片
-        wx.cloud.uploadFile({//上传函数
+        wx.cloud.uploadFile({ //上传函数
           cloudPath: newFile, //新文件名
-          filePath: item,     //原先文件
-          success: (res) => {   //上传成功
+          filePath: item, //原先文件
+          success: (res) => { //上传成功
             //8：上传成功获取当前图片fileID
             var fid = res.fileID;
             //9：保存当前fileID在data中
@@ -48,8 +64,8 @@ Page({
             resolve();
           }
         })
-      }));//push end
-    }//for end
+      })); //push end
+    } //for end
     //功能二：将留言/打分/fileID添加云数据库
     //11：等待所有Promise对象执行完成
     //    在回调函数完成功能二
@@ -61,14 +77,16 @@ Page({
       //    title   标题
       //    fileIds 上传图片id列表
       db.collection("photo_list").add({
-        data:{
-          content: this.data.content, //内容
-          title: this.data.title, //标题
-          fileIds: this.data.fileIds, //图片ids列表
-          userInfo: this.data.userInfo// 用户信息
-        }
-      
-      })
+          data: {
+            content: this.data.content, //内容
+            title: this.data.title, //标题
+            fileIds: this.data.fileIds, //图片ids列表
+            userInfo: this.data.userInfo, // 用户信息
+            uid: this.data.uid, //用户id
+            date:this.data.date //发布时间
+          }
+
+        })
         .then(res => {
           //15：成功回调函数 隐藏加载提示框 提示文字
           wx.hideLoading();
@@ -79,20 +97,20 @@ Page({
             url: '/pages/index/index'
           })
         })
-        .catch(err => { 
+        .catch(err => {
           console.log(err)
-         })
+        })
       //16：失败回调函数 隐藏加载提示框 提示文字
-    });//Promise.all end
+    }); //Promise.all end
   },
   // 上传头像
-  selectImage: function () {
+  selectImage: function() {
     var t = this;
     wx.chooseImage({
       count: 9,
       sizeType: ["original", "compressed"],
       sourceType: ["album", "camera"],
-      success: function (res) {
+      success: function(res) {
         var r = res.tempFilePaths;
         console.log(r)
         t.setData({
@@ -102,13 +120,13 @@ Page({
     })
   },
   // 输入框 输入的事件
-  inputAction: function (event) {
+  inputAction: function(event) {
     // 保存 输入框 输入的内容
     this.setData({
       content: event.detail.value
     });
   },
-  inputTitle:function(e){
+  inputTitle: function(e) {
     this.setData({
       title: e.detail.value
     });
@@ -116,66 +134,67 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-      wx.getUserInfo({
-        withCredentials: true,
-        lang: '',
-        success: (res)=> {
-          console.log(res)
-          this.setData({
-            userInfo: res.userInfo
-          })
-        }
-      })
-
+  onLoad: function(options) {
+    wx.getUserInfo({
+      withCredentials: true,
+      lang: '',
+      success: (res) => {
+        console.log(res)
+        this.setData({
+          userInfo: res.userInfo,
+          uid: res.signature
+        })
+      }
+    })
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

@@ -19,9 +19,9 @@ Page({
   sel:function(){
     db.collection("photo_list").get()
     .then(res=>{
-      console.log(res)
+      console.log(res.data)
       this.setData({
-        list:res.data
+        list:res.data.reverse()
       })
     })
   },
@@ -40,6 +40,15 @@ Page({
    */
   onLoad: function (options) {
     this.sel();
+    wx.getLocation({
+      type: '',
+      altitude: true,
+      success: function(res) {
+        console.log(res)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -87,6 +96,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+    wx.showShareMenu({
+      withShareTicket: true,
+      success: function(res) {
+        console.log(res)
+      }
+    })
   }
 })

@@ -1,18 +1,27 @@
 
 
 .item {
+  
   background: rgba(240,240,240,0.6);
   margin: 5% 0;
-  align-items: center;
+  
   padding: 20rpx;
   border-radius: 10rpx;
   box-shadow: 0 0 15rpx gray;
 }
-
-.item .name {
+.time{
   text-align: right;
+  margin: 10rpx 0 0;
+}
+ .name {
+   display: flex;
+  width: 100%;
+  align-items: center;
+ justify-content: flex-end;
   color: aqua
 }
-.goback{
-  float: right;
+image{
+  width: 100rpx;
+  border-radius: 50%;
 }
+

@@ -1,14 +1,20 @@
-  <view class='container'>
 
-  <view class='list_view' wx:for="{{datas}}">
-    <view class='item'>
-      <view class='address'>{{'保定职业学院'}}</view>
-      <view class='content'>{{item.content}}</view>
-      <view class='name'>--by{{item.name}}</view>
-    </view>
-  </view>
-  <view class='shezhi'>
-  <view class='goback' bindtap='toShouye'>返回首页</view>
-    <view class='fabu' bindtap='toFabu'>发布说说</view>
-</view>
+
+<view class="item" wx:for="{{list}}" wx:key>
+
+
+  <van-collapse value="{{ activeNames }}" bind:change="onChange">
+
+    <van-collapse-item title="{{item.title}}" name="{{index}}">
+      <van-notice-bar left-icon="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566884130610&di=85ac7c2d1f3ab4501b55ad61570d7b00&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F02%2F08%2F32%2F599ea318cddc2_610.jpg" 
+      text="{{item.content}}" />
+      
+      
+      <view class='name'>
+      <image mode="widthFix" src="{{item.userInfo.avatarUrl}}"></image>
+      --by~{{item.userInfo.nickName}}</view>
+      <view class="time">发布时间： {{item.date}}</view>
+    </van-collapse-item>
+
+  </van-collapse>
 </view>

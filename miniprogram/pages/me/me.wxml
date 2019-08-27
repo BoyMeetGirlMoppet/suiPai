@@ -10,7 +10,7 @@
 <!-- <button open-type="getUserInfo" bindgetuserinfo="getUser"></button> -->
 <view class='list'>
 
-<view class='item' wx:for='{{list}}' wx:key='mine'>
+<view class='item' wx:for='{{list}}' wx:key='mine' bindtap="toMyInfo" data-id="{{index}}">
 <view class='left'>
 <image src='{{item.icon}}'></image>
 <view>{{item.title}}</view>

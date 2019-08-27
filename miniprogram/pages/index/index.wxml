@@ -1,29 +1,30 @@
-<!-- 轮播区域 -->
-<view class='banner_swiper'>
-  <swiper indicator-dots='true' autoplay='true' circular='true' indicator-active-color='#00CED1' indicator-color='#FFA500' interval='3000'>
-    <swiper-item wx:for='{{images}}' wx:key='index'>
-      <image src='{{item}}'></image>
-    </swiper-item>
-  </swiper>
-</view>
-
-
 <!-- 说说区域 -->
-<view class='scene_list'  bindtap='toDetail' wx:for="{{list}}" wx:key data-id='{{item._id}}'>
-  <image class='scene_list_img' src='{{item.fileIds[0]}}'></image>
- 
+<view class='scene_list' bindtap='toDetail' wx:for="{{list}}" wx:key data-id='{{item._id}}'>
+  <!-- <image class='scene_list_img' src='{{item.fileIds[0]}}'></image> -->
+
+  <!-- 轮播区域 -->
+  <view class='banner_swiper'>
+    <swiper autoplay='true' circular='true' interval='3000'>
+      <swiper-item wx:for='{{item.fileIds}}' wx:key='index'>
+        <image src='{{item}}'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 轮播区域 -->
+
+  <!-- 信息展示区域 -->
   <view class='scene_title'>{{item.title}}</view>
   <view class='scene_infomation'>
-    <text>{{item.createdAt}}</text>
+    <text>{{item.date}}</text>
     <view>{{item.address}}</view>
   </view>
 
   <view class='user_head'>
-  <image src='{{item.userInfo.avatarUrl}}' mode='widthFix'></image>
-<view>~by {{item.userInfo.nickName}}</view>
-  </view>  
+    <image src='{{item.userInfo.avatarUrl}}' mode='widthFix'></image>
+    <view>~by {{item.userInfo.nickName}}</view>
+  </view>
 </view>
-
+<!-- 信息展示区域 -->
 
 <view class='publish_button' bindtap='toSend'>+</view>
 <view class='user_button' bindtap='toMe'>Me</view>
