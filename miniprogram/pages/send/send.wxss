@@ -12,6 +12,7 @@ textarea {
   box-sizing: border-box;
   /* height: 500rpx; */
 }
+
 /* 预览图片 */
 
 .img {
@@ -30,6 +31,7 @@ textarea {
 }
 
 /* 提交区域 */
+
 .send {
   position: fixed;
   bottom: 0;
@@ -43,5 +45,4 @@ button {
   width: 100%;
   font-family: "华文新魏";
   color: rgb(49, 94, 71);
-
 }

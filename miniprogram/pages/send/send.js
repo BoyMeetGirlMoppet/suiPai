@@ -1,4 +1,9 @@
 const db = wx.cloud.database();
+var QQMap = require("../../libs/qqmap-wx-jssdk.min.js");
+// 初始化QQ地图
+var map = new QQMap({
+  key: 'XN4BZ-3SDC4-OBQUD-DPFNP-S3Y25-XIFSD'
+});
 // pages/send/send.js
 Page({
 
@@ -12,7 +17,41 @@ Page({
     userInfo: {},
     fileIds: [],
     uid: "",
-    date:""
+    date: "",
+    address: ""
+  },
+  // 地址函数
+  addr: function() {
+    var that = this
+    return new Promise(function(success) {
+      // 定位的函数
+      wx.getLocation({
+        altitude: true,
+        success: function(res) {
+          console.log(res);
+          map.reverseGeocoder({
+            location: {
+              latitude: res.latitude,
+              longitude: res.longitude
+            },
+            success: function(res) {
+              console.log(res);
+              that.setData({
+                address: res.result.address
+              })
+            }
+          });
+        },
+        fail: function(res) {
+          // 提示用户 打开定位功能
+          wx.showToast({
+            title: '定位失败！请打开定位功能再发布！',
+            icon: "none",
+            duration: 2000
+          })
+        }
+      })
+    });
   },
   date: function() {
     var date = new Date()
@@ -24,7 +63,7 @@ Page({
       ":" + date.getSeconds()
     console.log(date)
     this.setData({
-      date:date
+      date: date
     })
   },
   submit: function() {
@@ -83,7 +122,8 @@ Page({
             fileIds: this.data.fileIds, //图片ids列表
             userInfo: this.data.userInfo, // 用户信息
             uid: this.data.uid, //用户id
-            date:this.data.date //发布时间
+            date: this.data.date, //发布时间
+            address: this.data.address // 发布地址
           }
 
         })
@@ -146,7 +186,7 @@ Page({
         })
       }
     })
-    
+    this.addr()
   },
 
   /**
