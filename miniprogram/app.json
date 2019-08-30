@@ -1,11 +1,14 @@
 {
   "pages": [
+    "pages/auth/auth",
     "pages/index/index",
     "pages/log/log",
     "pages/send/send",
     "pages/details/details",
     "pages/me/me",
     "pages/myInfo/myInfo"
+   
+    
   ],
   "window": {
     "navigationBarBackgroundColor": "#20B2AA",
@@ -13,8 +16,12 @@
     "navigationBarTitleText": "随时拍",
     "backgroundColor": "#eeeeee",
     "enablePullDownRefresh": true
+  },
+"permission": {
+  "scope.userLocation": {
+    "desc": "正在访问您的位置"
   }
-
+}
 ,
 "sitemapLocation": "sitemap.json",
 "usingComponents": {

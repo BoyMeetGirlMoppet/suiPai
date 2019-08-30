@@ -1,4 +1,5 @@
 const db = wx.cloud.database()
+const app = getApp()
 // pages/myInfo/myInfo.js
 Page({
 
@@ -44,10 +45,14 @@ Page({
         title: '我的评论'
       })
       db.collection("comment").where({
-          
+        _openid: app.globalData.openid
       }).get()
       .then(res=>{
         console.log(res)
+        this.setData({
+          list: res.data
+        })
+       
       }).catch(err=>{
         console.log(err)
       })

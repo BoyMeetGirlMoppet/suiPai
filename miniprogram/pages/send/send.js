@@ -1,9 +1,12 @@
-const db = wx.cloud.database();
+const db = wx.cloud.database({
+  env: 'lucky-cj-03ffa'
+});
 var QQMap = require("../../libs/qqmap-wx-jssdk.min.js");
 // 初始化QQ地图
 var map = new QQMap({
   key: 'XN4BZ-3SDC4-OBQUD-DPFNP-S3Y25-XIFSD'
 });
+const app = getApp()
 // pages/send/send.js
 Page({
 
@@ -22,6 +25,7 @@ Page({
   },
   // 地址函数
   addr: function() {
+    
     var that = this
     return new Promise(function(success) {
       // 定位的函数
@@ -187,6 +191,8 @@ Page({
       }
     })
     this.addr()
+    var c = app.globalData.openid
+    console.log(c)
   },
 
   /**

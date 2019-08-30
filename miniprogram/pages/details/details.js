@@ -24,15 +24,29 @@ Page({
         console.log(err)
       })
   },
-  flush: function() { //评论过后刷新页面
+  sub: function() { //评论过后刷新页面
+    wx.showLoading({
+      title: '正在评论中...'
+    })
     db.collection("comment").add({
       data: {
         review: this.data.review,
-        id: this.data.id
+        id: this.data.id,
+        userInfo: this.data.list[0].userInfo,
+        title: this.data.list[0].title
       }
     }).then(res => {
       console.log(res)
-
+      wx.hideLoading()
+      wx.showToast({
+        title: '评论成功',
+        duration: 1000,
+        mask: true,
+        success: (res)=> {
+          this.selReview()
+        }
+      })
+      
     }).catch(err => {
       console.log(err)
     })
@@ -47,20 +61,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options.id)
-    this.setData({
-      id: options.id
-    })
-    db.collection("photo_list").where({
-        _id: options.id
-      }).get()
-      .then(res => {
-        console.log(res)
+    wx.showToast({
+      title: '数据加载成功',
+      duration: 1000,
+      mask: true,
+      success: (res)=> {
+        console.log(options.id)
         this.setData({
-          list: res.data
+          id: options.id
         })
-      })
-    this.selReview()
+        db.collection("photo_list").where({
+          _id: options.id
+        }).get()
+          .then(res => {
+            console.log(res)
+            this.setData({
+              list: res.data
+            })
+          })
+        this.selReview()
+      }
+    })
+   
   },
 
   /**

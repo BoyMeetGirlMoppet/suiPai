@@ -1,4 +1,4 @@
-<view>
+<view class="bg">
 
   <view class='message_container container' wx:for="{{list}}" wx:key>
     <view class="title">{{item.title}} </view>
@@ -19,9 +19,9 @@
 
   </view>
 
-  <view class='comment_tools container'>
+  <view class='comment_tools'>
     <textarea placeholder='评论区' bindinput="inputAction"></textarea>
-    <view class='commit_button' bindtap='flush'>提交评论</view>
+    <view class='commit_button'  bindtap='sub'>提交评论</view>
   </view>
   <view class='list container' wx:if="{{comments.length>0}}">
     <view class='item' wx:for="{{comments}}" wx:key>{{item.review}}</view>

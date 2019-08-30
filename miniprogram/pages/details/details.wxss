@@ -54,3 +54,7 @@
 .img3 {
   width: 30%;
 }
+
+textarea{
+  width: 100%;
+}

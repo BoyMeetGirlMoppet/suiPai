@@ -1,3 +1,6 @@
+<view class="bg">
+
+
 <!-- 说说区域 -->
 <view class='scene_list' bindtap='toDetail' wx:for="{{list}}" wx:key data-id='{{item._id}}'>
   <!-- <image class='scene_list_img' src='{{item.fileIds[0]}}'></image> -->
@@ -28,3 +31,4 @@
 
 <view class='publish_button' bindtap='toSend'>+</view>
 <view class='user_button' bindtap='toMe'>Me</view>
+</view>
